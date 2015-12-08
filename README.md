@@ -1,5 +1,5 @@
-# Safebook
 Safebook
+======
 Este projeto aponta para o desenvolvimento de uma plataforma para publicar mensagens
 online tipo Twitter. A maior diferença é que as mensagens são publicadas cifradas, e só
 depois do recetor dessas mensagens as decifrar e ver, é que são disponibilizadas em
