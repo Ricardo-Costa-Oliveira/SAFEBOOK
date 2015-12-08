@@ -20,6 +20,7 @@ básicas da plataforma são:
 
 1. notificação de nova mensagem
 
+___
 
 A natureza desta plataforma define implicitamente dois programas:
 
@@ -28,7 +29,11 @@ A natureza desta plataforma define implicitamente dois programas:
 1. e um cliente, que produz assinaturas digitais, cifra ou decifra mensagens (dependendo do papel que o seu utilizador está a tomar nesse momento), e que se liga ao
 servidor para publicar mensagens.
 
+___
+
 Note-se que a ideia princípal deste projeto é a de que esta plataforma faça uso de mecanismos de criptografia simétricas e assimétrica. Isto é, quando determinado utilizador quiser publicar uma mensagem, deve escolher (interativamente) o destinatário da mesma, pedir ao servidor que lhe envie a chave pública (ou o certificado) desse destinatário e cifrar a mensagem com essa chave. O destinatário deve posteriormente receber uma notificação de nova mensagem recebida, decifrá-la com a sua chave privada e, caso concorde, substituir o texto cifrado publicado pelo texto limpo que decifrou.
+
+___
 
 Podem fortalecer o trabalho e conhecimento através da implementação das seguintes funcionalidades:
 
@@ -41,6 +46,8 @@ Podem fortalecer o trabalho e conhecimento através da implementação das segui
 1. Permitir escolher entre dois ou mais algoritmos de cifra e funções de hash
 
 1. Adicionar outros serviços, e.g., envio de uma mensagem para vários utilizadores (ao invés de um só)
+
+___
 
 Pensem numa forma de atacar o sistema (uma falha da sua implementação) e dediquem-
 lhe uma secção no relatório.
