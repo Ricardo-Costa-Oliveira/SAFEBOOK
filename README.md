@@ -21,6 +21,7 @@ básicas da plataforma são:
 
 
 A natureza desta plataforma define implicitamente dois programas:
+
 1. Um servidor que gere as informações de todos os utilizadores (tipo username e passwords) e publica as mensagens
 
 1. e um cliente, que produz assinaturas digitais, cifra ou decifra mensagens (dependendo do papel que o seu utilizador está a tomar nesse momento), e que se liga ao
@@ -30,6 +31,7 @@ Note-se que a ideia princípal deste projeto é a de que esta plataforma faça u
 
 Podem fortalecer o trabalho e conhecimento através da implementação das seguintes fun-
 cionalidades:
+
 1. ter um help bastante completo
 
 1. Usar certificados digitais X.509, e implementar uma infraestrutura de chave pública para o sistema e validar cadeias de certificados
