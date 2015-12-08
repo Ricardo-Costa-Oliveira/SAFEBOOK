@@ -9,11 +9,11 @@ ler essa mensagem é que esta aparece em texto limpo no site. Todas as mensagens
 devem ser assinadas digitalmente pelo autor original das mesmas e, após serem lidas
 pelo destinatário, também devem conter uma assinatura deste último. As funcionalidades
 básicas da plataforma são:
-1. • registo de um novo utilizador;
-1. • cifragem, assinatura digital e publicação de mensagens;
-1. • decifragem de mensagens direcionadas ao utilizador no programa cliente;
-1. • verificação da assinatura digital das mensagens decifradas;
-1. • notificação de nova mensagem.
+1. registo de um novo utilizador;
+1. cifragem, assinatura digital e publicação de mensagens;
+1. decifragem de mensagens direcionadas ao utilizador no programa cliente;
+1. verificação da assinatura digital das mensagens decifradas;
+1. notificação de nova mensagem.
 
 A natureza desta plataforma define implicitamente dois programas:
 1. • Um servidor que gere as informações de todos os utilizadores (tipo username e passwords) e publica as mensagens;
