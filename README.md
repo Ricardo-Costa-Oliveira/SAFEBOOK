@@ -9,6 +9,7 @@ ler essa mensagem é que esta aparece em texto limpo no site. Todas as mensagens
 devem ser assinadas digitalmente pelo autor original das mesmas e, após serem lidas
 pelo destinatário, também devem conter uma assinatura deste último. As funcionalidades
 básicas da plataforma são:
+
 1. registo de um novo utilizador
 
 1. cifragem, assinatura digital e publicação de mensagens
@@ -29,8 +30,7 @@ servidor para publicar mensagens.
 
 Note-se que a ideia princípal deste projeto é a de que esta plataforma faça uso de mecanismos de criptografia simétricas e assimétrica. Isto é, quando determinado utilizador quiser publicar uma mensagem, deve escolher (interativamente) o destinatário da mesma, pedir ao servidor que lhe envie a chave pública (ou o certificado) desse destinatário e cifrar a mensagem com essa chave. O destinatário deve posteriormente receber uma notificação de nova mensagem recebida, decifrá-la com a sua chave privada e, caso concorde, substituir o texto cifrado publicado pelo texto limpo que decifrou.
 
-Podem fortalecer o trabalho e conhecimento através da implementação das seguintes fun-
-cionalidades:
+Podem fortalecer o trabalho e conhecimento através da implementação das seguintes funcionalidades:
 
 1. ter um help bastante completo
 
