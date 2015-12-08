@@ -10,9 +10,13 @@ devem ser assinadas digitalmente pelo autor original das mesmas e, após serem l
 pelo destinatário, também devem conter uma assinatura deste último. As funcionalidades
 básicas da plataforma são:
 1. registo de um novo utilizador
+
 1. cifragem, assinatura digital e publicação de mensagens
+
 1. decifragem de mensagens direcionadas ao utilizador no programa cliente
+
 1. verificação da assinatura digital das mensagens decifradas
+
 1. notificação de nova mensagem
 
 1. [O lexico e a gramatica (formato BNF) da linguagem denida.](./The syntax of FIXE in BNF.txt)
