@@ -9,11 +9,21 @@ ler essa mensagem é que esta aparece em texto limpo no site. Todas as mensagens
 devem ser assinadas digitalmente pelo autor original das mesmas e, após serem lidas
 pelo destinatário, também devem conter uma assinatura deste último. As funcionalidades
 básicas da plataforma são:
-1. registo de um novo utilizador;
-1. cifragem, assinatura digital e publicação de mensagens;
-1. decifragem de mensagens direcionadas ao utilizador no programa cliente;
-1. verificação da assinatura digital das mensagens decifradas;
-1. notificação de nova mensagem.
+1. registo de um novo utilizador
+1. cifragem, assinatura digital e publicação de mensagens
+1. decifragem de mensagens direcionadas ao utilizador no programa cliente
+1. verificação da assinatura digital das mensagens decifradas
+1. notificação de nova mensagem
+
+1. [O lexico e a gramatica (formato BNF) da linguagem denida.](./The syntax of FIXE in BNF.txt)
+
+1. [Um analisador lexico para esta linguagem.](./lexer.mll)
+
+1. Um analisador sintatico.
+
+1. A  versao  preliminar  de  um  analisador  semantico  que  construa  uma arvore  de  sintaxe  abstracta enfeitada e  uma  tabela  de  smbolo  que permitam  uma  analise  preliminar  da  tipagem  e  a  execucao  do  passo seguinte.
+
+1. Um tradutor da arvore de sintaxe abstracta para um cheiro DOT que espelha a estrutura (as dependencias dos smbolos de funcao entre si) do programa fonte.
 
 A natureza desta plataforma define implicitamente dois programas:
 1. • Um servidor que gere as informações de todos os utilizadores (tipo username e passwords) e publica as mensagens;
