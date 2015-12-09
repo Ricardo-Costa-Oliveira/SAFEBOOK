@@ -26,7 +26,21 @@ private function connectToDatabase(){
 private function disconnectFromDatabase(){
 	mysql_close($link);
 }
-
+public function checkForNotifications($UserId){
+	$this->connectToDatabase();
+	$sql    = 'SELECT ultimaMensagem FROM utilizador WHERE idUtilizador = '.$UserId;
+	$result = mysql_query($sql, $this->link);
+	$this->checkIfValidResult($result);
+	$lastMessage = mysql_fetch_assoc($result);
+	$sql    = 'SELECT  max(idMensagem) as id FROM mensagem as f WHERE f.idReceptor = '.$UserId;
+	$result = mysql_query($sql, $this->link);
+	$this->checkIfValidResult($result);
+	$lastMessageReceived = mysql_fetch_assoc($result);
+	$nrNotifications = $lastMessageReceived['id']-$lastMessage['ultimaMensagem'];
+	mysql_free_result($result);
+	$this->disconnectFromDatabase();
+	return 	$nrNotifications;
+}
 private function findUserById($UserId){
 	$this->connectToDatabase();
 	$sql    = 'SELECT * FROM utilizador WHERE idUtilizador = '.$UserId;
@@ -53,10 +67,9 @@ public function findUserByCerticateSerialNumber($certId){
 
 
 
-private function setMessagePublic($id){
+public function setMessagePublic($id){
 	$this->connectToDatabase();
 	$sqlUpdate = 'UPDATE mensagem SET encriptado = 0 WHERE idMensagem = '.$id;
-	echo "Publica ".$id;
 	$result = mysql_query($sqlUpdate, $this->link);
 	$this->checkIfValidResult($result);
 	mysql_free_result($result);

@@ -84,9 +84,9 @@ public function encrypt ( $string ) {
 		exit( 'Cannot encrypt, no active certificate.' );
 
 	}
-	if ( strlen( $string ) > 56 ) {
-		exit( 'Cannot encrypt, input too long.' );
-	}
+	//if ( strlen( $string ) > 56 ) {
+	//	exit( 'Cannot encrypt, input too long.' );
+	//}
 	// create openssl certificate resource
 	$cert = openssl_get_publickey( $this->certificate );
 	// encrypt
