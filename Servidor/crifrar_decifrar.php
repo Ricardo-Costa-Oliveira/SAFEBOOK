@@ -28,6 +28,11 @@
                                                                   |  (FEITO) opta por tornar a mensagem publica
                                                                   |
 */
+
+
+/* IMPORTANTE PARA CONSEGUIR ESCREVER AS CHAVES E OS CERTIFICADOS O UTILIZADOR DO APACHE TEM DE TER AS PERMISSOES CORRETAS
+   VER http://serverfault.com/questions/357108/what-permissions-should-my-website-files-folders-have-on-a-linux-webserver
+*/
 	include ( 'Database.php' );
 	include ( 'openSSL.php' );
 
