@@ -3,6 +3,7 @@
 	define('AES_256_CBC', 'aes-256-cbc');
 class openSSL {
 private $certificate;
+private $serialNumber;
 private $privatekey;
 private $dn = array();
 private $x509 = array();
@@ -13,8 +14,7 @@ public function __construct() {
 // no constructor is needed here
 }
 // make new keys and load them into $this->certificate and $this->privatekey
-// certificate will be self-signed
-public function makeKeys ( $distinguishedName, $passphrase = NULL ) {
+public function makeKeys ( $distinguishedName, $passphrase = NULL, $certCA = NULL, $keyCA ) {
 	// keep track of the distinguished name
 	$this->dn = $distinguishedName;
 	// generate the pem-encoded private key
@@ -26,16 +26,30 @@ public function makeKeys ( $distinguishedName, $passphrase = NULL ) {
 	// generate the certificate signing request...
 	$csr = openssl_csr_new( $this->dn, $key, $config );
 	// and use it to make a self-signed certificate
+	$this->serialNumber = rand();
 	$cert = openssl_csr_sign( $csr, NULL, $key, 365, $config, time() );
+	// make openssl forget the key
+        openssl_free_key( $keyCA );
 	// export private and public keys
 	openssl_pkey_export( $key, $this->privatekey, $passphrase, $config );
+
+
+	//openssl_pkey_export_to_file ( $this->privatekey , "server.key", $passphrase, $config )
 	openssl_x509_export( $cert, $this->certificate );
 	// parse certificate
 	$this->x509 = openssl_x509_parse( $cert );
+	if ( isset( $this->serialNumber ) ) {
+		$outfilename = '/var/www/html/'.$this->serialNumber;
+		// Gets an exportable representation of a key into a file 
+		openssl_pkey_export_to_file($key,$outfilename.'.pem',$passphrase,$config);
+	}
+	openssl_x509_export_to_file($this->certificate , $outfilename.'.crt' , TRUE);
 	return TRUE;
 	// end of makeKeys() method
 }
-
+public function getCertificateSerialNumber(){
+	return $this->serialNumber;
+}
 
 // gets (or sets) $this->privatekey
 public function privateKey() {
@@ -160,7 +174,6 @@ public function verify ( $signedString ) {
 public function getCommonName() {
 	if ( isset( $this->x509['subject']['CN'] ) ) {
 	return $this->x509['subject']['CN'];
-
 	}
 	return NULL;
 	// end of getCommonName() method

@@ -36,9 +36,12 @@ CREATE TABLE `emissao` (
 
 CREATE TABLE `mensagem` (
   `idMensagem` int(11) NOT NULL,
-  `designacao` varchar(50) NOT NULL,
+  `texto` varchar(300) NOT NULL,
   `encriptado` tinyint(1) NOT NULL,
-  `chave` char(30) NOT NULL
+  `chave` varchar(300) NOT NULL,
+  `dataEmissao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `idEmissor` int(11) NOT NULL,
+  `idReceptor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,10 +53,10 @@ CREATE TABLE `mensagem` (
 CREATE TABLE `utilizador` (
   `idUtilizador` int(11) NOT NULL,
   `nomeUtilizador` varchar(30) NOT NULL,
+  `salt` char(32) NOT NULL,
   `password` char(64) NOT NULL COMMENT 'guarda hash da password',
-  `idCertificado` bigint(20) UNSIGNED NOT NULL COMMENT '"unsigned" para guardar de 0 para cima ',
-  `ultimaMensagem` int(10) UNSIGNED NOT NULL COMMENT '"unsigned" para guardar de 0 para cima ',
-  `salt` char(32) NOT NULL
+  `idCertificado` varchar(20) NOT NULL COMMENT '"unsigned" para guardar de 0 para cima ',
+  `ultimaMensagem` int(10) UNSIGNED NOT NULL COMMENT '"unsigned" para guardar de 0 para cima '
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
